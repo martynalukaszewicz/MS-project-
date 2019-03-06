@@ -30,6 +30,8 @@ k <- length(unlist(prob.adj))-q  ## degrees of freedom of chi-squared
 
 alpha <- 0.05 ## choose significance level alpha, 1-alpha=confidence level
 nsim <- 1000 ## choose number of simulations
+#################
+
 
 calc_coverage <- function(q,prob.adj,k,n.0,l,alpha,nsim){
 
