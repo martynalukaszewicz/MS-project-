@@ -1,13 +1,17 @@
-## calc_coverage() function returns 
+## calc_coverage() function returns coverage for a chi-square statistic for product multinomial along with plots of sorted distances 
+## of Pearson's chi-sqyuared statistic for varying sample sizes over 10^4 iterations plotted against quantiles of chi-squared(r-1) distribution.
 
 ## Sample R code with small example of determining sample as described in master's thesis project.
 ## expected probabilities for 6 sampling times:
+n.0 <- c(rep(50,q),rep(250,q),rep(750,q),rep(1000,q))   ## choose starting n value, same for each t
+l <- length(n.0)
+
 prob.t1 <- c(0.895, 0.1, 0.005)
 prob.t2 <- c(0.22, 0.62, 0.15 ,0.01)
 prob.t3 <- c( 0.01, 0.275 ,0.6, 0.1065,0.005,0.0035)
 prob.t4 <- c(0.004, 0.146 ,0.85)
 prob.t5 <- c(0.005,0.57,0.425)
-prob.t6 <- c(0.001, 0.999)   ## violation of minimum of 0.0035 for expected probability
+prob.t6 <- c(0.001, 0.999)   ## violation of minimum of expected count of 0.0035 for expected probability
 
 q <- 6  ## 6 sampling times 
 
@@ -22,10 +26,8 @@ prob.adj[[6]] <- prob.t6
 
 k <- length(unlist(prob.adj))-q  ## degrees of freedom of chi-squared
 
-n.0 <- c(rep(50,q),rep(250,q),rep(750,q),rep(1000,q))   ## choose starting n value, same for each t
-l <- length(n.0)
-alpha <- 0.05
-nsim <- 1000## choose number of simulations
+alpha <- 0.05 ## choose significance level alpha, 1-alpha=confidence level
+nsim <- 1000 ## choose number of simulations
 
 calc_coverage <- function(q,prob.adj,k,n.0,l,alpha,nsim){
 
