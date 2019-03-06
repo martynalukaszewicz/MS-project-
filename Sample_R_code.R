@@ -1,12 +1,14 @@
-## calc_coverage() function returns coverage for a chi-square statistic for product multinomial along with plots of sorted distances 
-## of Pearson's chi-sqyuared statistic for varying sample sizes over 10^4 iterations plotted against quantiles of chi-squared(r-1) distribution.
+## calc_coverage() function returns coverage for a chi-square statistic for product multinomial along with plots
+## of sorted distances of Pearson's chi-squared statistic for varying sample sizes over 10^4 iterations plotted
+## against quantiles of chi-squared(q(r-1)) distribution.
 
 ## Sample R code with small example of determining sample as described in master's thesis project.
 ## expected probabilities for 6 sampling times:
 n.0 <- c(rep(50,q),rep(250,q),rep(750,q),rep(1000,q))   ## choose starting n value, same for each t
 l <- length(n.0)
 
-prob.t1 <- c(0.895, 0.1, 0.005)
+
+prob.t1 <- c(0.895, 0.1, 0.005) 
 prob.t2 <- c(0.22, 0.62, 0.15 ,0.01)
 prob.t3 <- c( 0.01, 0.275 ,0.6, 0.1065,0.005,0.0035)
 prob.t4 <- c(0.004, 0.146 ,0.85)
